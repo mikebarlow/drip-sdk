@@ -15,17 +15,25 @@ class Drip
      *
      * @param ClientInterface $http Guzzle Package
      * @param AbstractAuth $auth (Optional)
+     * @param int $accountId (Optional)
      */
-    public function __construct(ClientInterface $http, AbstractAuth $auth = null)
-    {
+    public function __construct(
+        ClientInterface $http,
+        AbstractAuth $auth = null,
+        $accountId = null
+    ) {
         $this->setAllData(
             $this->dripDefaults()
         );
 
         $this->http = $http;
 
-        if (! is_null($auth)) {
+        if ($auth !== null) {
             $this->setAuth($auth);
+        }
+
+        if ($accountId !== null) {
+            $this->setAccountId($accountId);
         }
     }
 
@@ -54,7 +62,7 @@ class Drip
     }
 
     /**
-     * set the Drip Account Number
+     * set the Drip Account Id
      *
      * @param int $accountId
      */
