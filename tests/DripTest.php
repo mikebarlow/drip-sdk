@@ -12,15 +12,15 @@ class DripTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(
             'Snscripts\Drip\Drip',
             new Drip(
-                $this->getMock(ClientInterface::class)
+                $this->createMock(ClientInterface::class)
             )
         );
 
         $this->assertInstanceOf(
             'Snscripts\Drip\Drip',
             new Drip(
-                $this->getMock(ClientInterface::class),
-                $this->getMock(AbstractAuth::class, [], ['token' => 'qwe'])
+                $this->createMock(ClientInterface::class),
+                $this->createMock(AbstractAuth::class, [], ['token' => 'qwe'])
             )
         );
     }
@@ -28,7 +28,7 @@ class DripTest extends \PHPUnit_Framework_TestCase
     public function testDefaultsValuesAreAccessible()
     {
         $Drip = new Drip(
-            $this->getMock(ClientInterface::class)
+            $this->createMock(ClientInterface::class)
         );
 
         $this->assertSame(

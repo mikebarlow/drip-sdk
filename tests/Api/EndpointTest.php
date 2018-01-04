@@ -15,7 +15,7 @@ class EndpointTest extends \PHPUnit_Framework_TestCase
             'Snscripts\Drip\Api\Endpoint',
             new Endpoint(
                 new Drip(
-                    $this->getMock(ClientInterface::class)
+                    $this->createMock(ClientInterface::class)
                 )
             )
         );
@@ -24,7 +24,7 @@ class EndpointTest extends \PHPUnit_Framework_TestCase
     public function testBuildUrlCorrectlyBuildsEndpointUrl()
     {
         $Drip = new Drip(
-            $this->getMock(ClientInterface::class)
+            $this->createMock(ClientInterface::class)
         );
         $Drip->setAccountId('123456');
 
@@ -44,7 +44,7 @@ class EndpointTest extends \PHPUnit_Framework_TestCase
     public function testBuildUrlCorrectlyBuildsEndpointUrlWithTrailingSlashes()
     {
         $Drip = new Drip(
-            $this->getMock(ClientInterface::class)
+            $this->createMock(ClientInterface::class)
         );
         $Drip->setAccountId('123456');
         $Drip->apiUrl = 'https://api.getdrip.com/v2/';
@@ -65,7 +65,7 @@ class EndpointTest extends \PHPUnit_Framework_TestCase
     public function testBuildOptionsCorrectlyBuildsOptionsArrayWithTokenAuth()
     {
         $Drip = new Drip(
-            $this->getMock(ClientInterface::class)
+            $this->createMock(ClientInterface::class)
         );
         $Drip->setAccountId('123456');
         $Drip->setAuth(
@@ -107,7 +107,7 @@ class EndpointTest extends \PHPUnit_Framework_TestCase
     public function testBuildOptionsCorrectlyBuildsOptionsArrayWithOauthAuth()
     {
         $Drip = new Drip(
-            $this->getMock(ClientInterface::class)
+            $this->createMock(ClientInterface::class)
         );
         $Drip->setAccountId('123456');
         $Drip->setAuth(
