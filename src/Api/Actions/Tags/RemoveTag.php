@@ -19,7 +19,9 @@ class RemoveTag extends AbstractAction
 
         $email = $this->Subscriber->email;
         if (empty($email)) {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo('A subscribers email is required to remove a tag from them.');
+            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
+                'A subscribers email is required to remove a tag from them.'
+            );
         }
 
         $tagName = $this->Tag->name;
@@ -77,7 +79,8 @@ class RemoveTag extends AbstractAction
 
         return \Snscripts\Result\Result::fail(
             \Snscripts\Result\Result::ERROR,
-            'There was an error removing the tag "' . $this->Tag->name . '" from the subscriber (' . $this->Subscriber->email . ')'
+            'There was an error removing the tag "' . $this->Tag->name .
+            '" from the subscriber (' . $this->Subscriber->email . ')'
         );
     }
 }

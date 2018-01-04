@@ -47,7 +47,10 @@ class Endpoint
             );
         } catch (\Exception $e) {
             // throw our own exception here
-            throw new \Snscripts\Drip\Exceptions\QueryFailed('Query (' . get_class($this) . '::' . get_class($this->loadedAction) . ') failed, error given was ' . $e->getMessage());
+            throw new \Snscripts\Drip\Exceptions\QueryFailed(
+                'Query (' . get_class($this) . '::' . get_class($this->loadedAction) .
+                ') failed, error given was ' . $e->getMessage()
+            );
         }
 
         return $this->loadedAction->processResponse($Response);

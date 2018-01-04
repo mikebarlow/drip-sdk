@@ -23,7 +23,9 @@ class Fetch extends AbstractAction
         } elseif (! empty($email)) {
             $this->urlToken = $email;
         } else {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo('A subscribers email or ID is required to fetch their data.');
+            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
+                'A subscribers email or ID is required to fetch their data.'
+            );
         }
     }
 

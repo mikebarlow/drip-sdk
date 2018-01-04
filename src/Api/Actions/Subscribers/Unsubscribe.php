@@ -25,7 +25,9 @@ class Unsubscribe extends AbstractAction
         } elseif (! empty($email)) {
             $this->urlToken = $email;
         } else {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo('A subscribers email or ID is required to remove their subscriptions.');
+            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
+                'A subscribers email or ID is required to remove their subscriptions.'
+            );
         }
 
         $this->urlQuery = [];
@@ -37,7 +39,9 @@ class Unsubscribe extends AbstractAction
                     'campaign_id' => $this->Campaign->id
                 ];
             } else {
-                throw new \Snscripts\Drip\Exceptions\CampaignInfo('A Campaign ID is required to remove a subscriber from a specific campaign.');
+                throw new \Snscripts\Drip\Exceptions\CampaignInfo(
+                    'A Campaign ID is required to remove a subscriber from a specific campaign.'
+                );
             }
         }
     }
@@ -95,7 +99,8 @@ class Unsubscribe extends AbstractAction
         if ($Response->getStatusCode() === 200 && count($body['subscribers']) > 0) {
             return \Snscripts\Result\Result::success(
                 \Snscripts\Result\Result::DELETED,
-                'Subscriber (' . $this->Subscriber->email . ') has been unsubscribed from ' . $msg,
+                'Subscriber (' . $this->Subscriber->email .
+                ') has been unsubscribed from ' . $msg,
                 [],
                 [
                     'subscriber' => new Subscriber($body['subscribers']['0']),
@@ -105,7 +110,8 @@ class Unsubscribe extends AbstractAction
 
         return \Snscripts\Result\Result::fail(
             \Snscripts\Result\Result::ERROR,
-            'There was an error while unsubscribing the user (' . $this->Subscriber->email . ') from ' . $msg
+            'There was an error while unsubscribing the user (' .
+            $this->Subscriber->email . ') from ' . $msg
         );
     }
 }

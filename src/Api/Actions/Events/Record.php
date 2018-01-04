@@ -25,12 +25,16 @@ class Record extends AbstractAction
         } elseif (! empty($email)) {
             $this->subscriberInfo = ['email' => $email];
         } else {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo('A subscribers email or ID is required to record an event action.');
+            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
+                'A subscribers email or ID is required to record an event action.'
+            );
         }
 
         $eventAction = $this->Event->action;
         if (empty($eventAction)) {
-            throw new \Snscripts\Drip\Exceptions\EventInfo('An event action is required when recording to a subscriber.');
+            throw new \Snscripts\Drip\Exceptions\EventInfo(
+                'An event action is required when recording to a subscriber.'
+            );
         }
     }
 
@@ -86,13 +90,15 @@ class Record extends AbstractAction
         if ($Response->getStatusCode() === 204) {
             return \Snscripts\Result\Result::success(
                 \Snscripts\Result\Result::SAVED,
-                'Action "' . $this->Event->action . '" has been recorded on subscriber "' . $this->Subscriber->email . '"'
+                'Action "' . $this->Event->action .
+                '" has been recorded on subscriber "' . $this->Subscriber->email . '"'
             );
         }
 
         return \Snscripts\Result\Result::fail(
             \Snscripts\Result\Result::ERROR,
-            'There was an error while recording the action "' . $this->Event->action . '" on the user (' . $this->Subscriber->email . ')'
+            'There was an error while recording the action "' . $this->Event->action .
+            '" on the user (' . $this->Subscriber->email . ')'
         );
     }
 }

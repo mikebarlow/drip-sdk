@@ -19,7 +19,9 @@ class AddTag extends AbstractAction
 
         $email = $this->Subscriber->email;
         if (empty($email)) {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo('A subscribers email is required to apply a tag to them.');
+            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
+                'A subscribers email is required to apply a tag to them.'
+            );
         }
 
         $tagName = $this->Tag->name;
@@ -84,7 +86,8 @@ class AddTag extends AbstractAction
 
         return \Snscripts\Result\Result::fail(
             \Snscripts\Result\Result::ERROR,
-            'There was an error applying the tag "' . $this->Tag->name . '" to the subscriber (' . $this->Subscriber->email . ')'
+            'There was an error applying the tag "' . $this->Tag->name .
+            '" to the subscriber (' . $this->Subscriber->email . ')'
         );
     }
 }

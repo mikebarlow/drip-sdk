@@ -23,7 +23,9 @@ class Delete extends AbstractAction
         } elseif (! empty($email)) {
             $this->urlToken = $email;
         } else {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo('A subscribers email or ID is required to delete the subscriber.');
+            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
+                'A subscribers email or ID is required to delete the subscriber.'
+            );
         }
     }
 

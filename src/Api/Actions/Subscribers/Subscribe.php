@@ -19,7 +19,9 @@ class Subscribe extends AbstractAction
 
         $email = $this->Subscriber->email;
         if (empty($email)) {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo('A subscribers email is required to subscribe them to a campaign.');
+            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
+                'A subscribers email is required to subscribe them to a campaign.'
+            );
         }
 
         $campaignId = $this->Campaign->id;
@@ -79,7 +81,8 @@ class Subscribe extends AbstractAction
         if ($Response->getStatusCode() === 201 && count($body['subscribers']) > 0) {
             return \Snscripts\Result\Result::success(
                 \Snscripts\Result\Result::SAVED,
-                'Subscriber (' . $this->Subscriber->email . ') has been subscribed to a campaign (' . $this->Campaign->id . ')',
+                'Subscriber (' . $this->Subscriber->email .
+                ') has been subscribed to a campaign (' . $this->Campaign->id . ')',
                 [],
                 [
                     'subscriber' => new Subscriber($body['subscribers']['0']),
@@ -89,7 +92,8 @@ class Subscribe extends AbstractAction
 
         return \Snscripts\Result\Result::fail(
             \Snscripts\Result\Result::ERROR,
-            'There was an error while subscribing the user (' . $this->Subscriber->email . ') to the campaign (' . $this->Campaign->id . ')'
+            'There was an error while subscribing the user (' . $this->Subscriber->email .
+            ') to the campaign (' . $this->Campaign->id . ')'
         );
     }
 }
