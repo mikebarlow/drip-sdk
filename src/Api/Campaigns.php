@@ -3,7 +3,6 @@
 namespace Snscripts\Drip\Api;
 
 use Snscripts\Drip\Items\Campaign;
-use Snscripts\Drip\Items\Subscriber;
 use Snscripts\Drip\Api\Filters\QueryFilter;
 use Snscripts\Drip\Api\Actions\Campaigns\ListAll;
 
@@ -22,6 +21,18 @@ class Campaigns extends Endpoint
         }
 
         $this->loadedAction = new ListAll($QueryFilter);
+        return $this;
+    }
+
+    /**
+     * fetch a campaign
+     *
+     * @param Campaign $Campaign
+     * @return Campaigns $this
+     */
+    public function fetch(Campaign $Campaign)
+    {
+        $this->loadedAction = new Fetch($Campaign);
         return $this;
     }
 }

@@ -1,30 +1,25 @@
 <?php
 
-namespace Snscripts\Drip\Api\Actions\Subscribers;
+namespace Snscripts\Drip\Api\Actions\Campaigns;
 
-use Snscripts\Drip\Items\Subscriber;
+use Snscripts\Drip\Items\Campaign;
 use Snscripts\Drip\Api\Actions\AbstractAction;
 
 class Fetch extends AbstractAction
 {
     /**
-     * constrcutor - fetch the Subscriber object
+     * constrcutor - fetch the Campaign object
      *
      */
-    public function __construct(Subscriber $Subscriber)
+    public function __construct(Campaign $Campaign)
     {
-        $this->Subscriber = $Subscriber;
+        $this->Campaign = $Campaign;
 
-        $id = $this->Subscriber->id;
-        $email = $this->Subscriber->email;
+        $id = $this->Campaign->id;
 
-        if (! empty($id)) {
-            $this->urlToken = $id;
-        } elseif (! empty($email)) {
-            $this->urlToken = $email;
-        } else {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
-                'A subscribers email or ID is required to fetch their data.'
+        if (empty($id)) {
+            throw new \Snscripts\Drip\Exceptions\CampaignInfo(
+                'A Campaign ID is required to fetch the campaign data.'
             );
         }
     }
@@ -46,7 +41,7 @@ class Fetch extends AbstractAction
      */
     public function getEndpointUrl()
     {
-        return ':accountId/subscribers/' . $this->urlToken;
+        return ':accountId/campaigns/' . $this->Campaign->id;
     }
 
     /**
@@ -71,20 +66,20 @@ class Fetch extends AbstractAction
     {
         $body = $this->getBody($Response);
 
-        if (count($body['subscribers']) > 0) {
+        if (count($body['campaigns']) > 0) {
             return \Snscripts\Result\Result::success(
                 \Snscripts\Result\Result::FOUND,
-                'Subscriber details found.',
+                'Campaign details found.',
                 [],
                 [
-                    'subscriber' => new Subscriber($body['subscribers']['0']),
+                    'campaign' => new Campaign($body['campaigns']['0']),
                 ]
             );
         }
 
         return \Snscripts\Result\Result::fail(
             \Snscripts\Result\Result::NOT_FOUND,
-            'No Subscribers found'
+            'No campaigns found'
         );
     }
 }
