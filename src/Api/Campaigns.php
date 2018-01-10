@@ -5,6 +5,7 @@ namespace Snscripts\Drip\Api;
 use Snscripts\Drip\Items\Campaign;
 use Snscripts\Drip\Api\Filters\QueryFilter;
 use Snscripts\Drip\Api\Actions\Campaigns\Fetch;
+use Snscripts\Drip\Api\Actions\Campaigns\Pause;
 use Snscripts\Drip\Api\Actions\Campaigns\ListAll;
 use Snscripts\Drip\Api\Actions\Campaigns\Activate;
 
@@ -47,6 +48,18 @@ class Campaigns extends Endpoint
     public function activate(Campaign $Campaign)
     {
         $this->loadedAction = new Activate($Campaign);
+        return $this;
+    }
+
+    /**
+     * pause a campaign
+     *
+     * @param Campaign $Campaign
+     * @return Campaigns $this
+     */
+    public function pause(Campaign $Campaign)
+    {
+        $this->loadedAction = new Pause($Campaign);
         return $this;
     }
 }
