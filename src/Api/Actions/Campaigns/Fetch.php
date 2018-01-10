@@ -8,8 +8,9 @@ use Snscripts\Drip\Api\Actions\AbstractAction;
 class Fetch extends AbstractAction
 {
     /**
-     * constrcutor - fetch the Campaign object
+     * Constructor
      *
+     * @param Campaign $Campaign
      */
     public function __construct(Campaign $Campaign)
     {

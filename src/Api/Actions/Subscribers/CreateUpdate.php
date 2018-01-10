@@ -66,7 +66,7 @@ class CreateUpdate extends AbstractAction
 
         if (count($body['subscribers']) > 0) {
             return \Snscripts\Result\Result::success(
-                \Snscripts\Result\Result::FOUND,
+                \Snscripts\Result\Result::SAVED,
                 'Subscriber created / updated',
                 [],
                 [

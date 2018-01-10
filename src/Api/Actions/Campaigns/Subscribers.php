@@ -3,19 +3,30 @@
 namespace Snscripts\Drip\Api\Actions\Campaigns;
 
 use Snscripts\Drip\Items\Campaign;
+use Snscripts\Drip\Items\Subscriber;
 use Snscripts\Drip\Api\Filters\QueryFilter;
 use Snscripts\Drip\Api\Actions\AbstractAction;
 
-class ListAll extends AbstractAction
+class Subscribers extends AbstractAction
 {
     /**
      * Constructor
      *
+     * @param Campaign $Campaign
      * @param QueryFilter $QueryFilter|null
      */
-    public function __construct(QueryFilter $QueryFilter)
+    public function __construct(Campaign $Campaign, QueryFilter $QueryFilter)
     {
+        $this->Campaign = $Campaign;
         $this->QueryFilter = $QueryFilter;
+
+        $id = $this->Campaign->id;
+
+        if (empty($id)) {
+            throw new \Snscripts\Drip\Exceptions\CampaignInfo(
+                'A Campaign ID is required to fetch the campaign data.'
+            );
+        }
     }
 
     /**
@@ -35,7 +46,7 @@ class ListAll extends AbstractAction
      */
     public function getEndpointUrl()
     {
-        return ':accountId/campaigns';
+        return ':accountId/campaigns/' . $this->Campaign->id . '/subscribers';
     }
 
     /**
@@ -60,25 +71,25 @@ class ListAll extends AbstractAction
     {
         $body = $this->getBody($Response);
 
-        if (count($body['campaigns']) > 0) {
-            $Campaigns = [];
-            foreach ($body['campaigns'] as $campaign) {
-                $Campaigns[] = new Campaign($campaign);
+        if (count($body['subscribers']) > 0) {
+            $Subscribers = [];
+            foreach ($body['subscribers'] as $subscriber) {
+                $Subscribers[] = new Subscriber($subscriber);
             }
 
             return \Snscripts\Result\Result::success(
                 \Snscripts\Result\Result::FOUND,
-                count($Campaigns) . ' Campaigns found',
+                count($Subscribers) . ' Subscribers found',
                 [],
                 [
-                    'campaigns' => new \Cartalyst\Collections\Collection($Campaigns),
+                    'subscribers' => new \Cartalyst\Collections\Collection($Subscribers),
                 ]
             );
         }
 
         return \Snscripts\Result\Result::fail(
             \Snscripts\Result\Result::NOT_FOUND,
-            'No Campaigns found'
+            'No Subscribers found'
         );
     }
 }
