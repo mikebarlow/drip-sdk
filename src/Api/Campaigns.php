@@ -4,6 +4,7 @@ namespace Snscripts\Drip\Api;
 
 use Snscripts\Drip\Items\Campaign;
 use Snscripts\Drip\Api\Filters\QueryFilter;
+use Snscripts\Drip\Api\Actions\Campaigns\Fetch;
 use Snscripts\Drip\Api\Actions\Campaigns\ListAll;
 
 class Campaigns extends Endpoint
