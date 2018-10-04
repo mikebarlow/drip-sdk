@@ -16,7 +16,7 @@ Drip SDK is a PSR-2 Compliant Object Orientated PHP SDK for the Drip Email Marke
 Drip-sdk requires the following:
 
 * "php": ">=5.6.0"
-* "guzzlehttp/guzzle": "6.2.*"
+* "guzzlehttp/guzzle": "6.3.*"
 * "cartalyst/collections": "1.1.*"
 * "snscripts/getset": "1.0.*"
 * "snscripts/result": "1.0.*"
