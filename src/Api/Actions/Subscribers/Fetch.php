@@ -1,9 +1,9 @@
 <?php
 
-namespace Snscripts\Drip\Api\Actions\Subscribers;
+namespace TutoraUK\Drip\Api\Actions\Subscribers;
 
-use Snscripts\Drip\Items\Subscriber;
-use Snscripts\Drip\Api\Actions\AbstractAction;
+use TutoraUK\Drip\Items\Subscriber;
+use TutoraUK\Drip\Api\Actions\AbstractAction;
 
 class Fetch extends AbstractAction
 {
@@ -23,7 +23,7 @@ class Fetch extends AbstractAction
         } elseif (! empty($email)) {
             $this->urlToken = $email;
         } else {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
+            throw new \TutoraUK\Drip\Exceptions\SubscriberInfo(
                 'A subscribers email or ID is required to fetch their data.'
             );
         }
@@ -65,15 +65,15 @@ class Fetch extends AbstractAction
      * process the response from the guzzle request
      *
      * @param GuzzleHttp\Psr7\Response $Response
-     * @return Snscripts\Result|Result
+     * @return TutoraUK\Result|Result
      */
     public function processResponse($Response)
     {
         $body = $this->getBody($Response);
 
         if (count($body['subscribers']) > 0) {
-            return \Snscripts\Result\Result::success(
-                \Snscripts\Result\Result::FOUND,
+            return \TutoraUK\Result\Result::success(
+                \TutoraUK\Result\Result::FOUND,
                 'Subscriber details found.',
                 [],
                 [
@@ -82,8 +82,8 @@ class Fetch extends AbstractAction
             );
         }
 
-        return \Snscripts\Result\Result::fail(
-            \Snscripts\Result\Result::NOT_FOUND,
+        return \TutoraUK\Result\Result::fail(
+            \TutoraUK\Result\Result::NOT_FOUND,
             'No Subscribers found'
         );
     }

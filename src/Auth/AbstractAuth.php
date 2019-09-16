@@ -1,9 +1,9 @@
 <?php
 
-namespace Snscripts\Drip\Auth;
+namespace TutoraUK\Drip\Auth;
 
-use Snscripts\GetSet\GetSet;
-use Snscripts\Drip\Exceptions\EmptyToken;
+use TutoraUK\GetSet\GetSet;
+use TutoraUK\Drip\Exceptions\EmptyToken;
 
 abstract class AbstractAuth
 {

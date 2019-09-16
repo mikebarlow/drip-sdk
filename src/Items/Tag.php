@@ -1,6 +1,6 @@
 <?php
 
-namespace Snscripts\Drip\Items;
+namespace TutoraUK\Drip\Items;
 
 class Tag extends Item
 {

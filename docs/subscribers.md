@@ -5,7 +5,7 @@ Before running through the following documentation, please make sure you have re
 ## Retrieving all subscribers
 
     // Setup the object for the subscribers endpoints
-    $Api = new \Snscripts\Drip\Api\Subscribers(
+    $Api = new \TutoraUK\Drip\Api\Subscribers(
         $Drip
     );
 
@@ -20,7 +20,7 @@ Before running through the following documentation, please make sure you have re
     $Subscribers = $Results->getExtras('subscribers');
 
     // Each item in collection is an instance of
-    // Snscripts\Drip\Items\Subscriber
+    // TutoraUK\Drip\Items\Subscriber
     foreach ($Subscribers as $Subscriber) {
         echo $Subscriber->id . '<br>';
     }
@@ -30,12 +30,12 @@ Before running through the following documentation, please make sure you have re
 View the Drip REST documentation to view the full list of available parameters for your subscriber object.
 
     // Setup the object for the subscribers endpoints
-    $Api = new \Snscripts\Drip\Api\Subscribers(
+    $Api = new \TutoraUK\Drip\Api\Subscribers(
         $Drip
     );
 
     // Create a new subscriber object
-    $Subscriber = new \Snscripts\Drip\Items\Subscriber([
+    $Subscriber = new \TutoraUK\Drip\Items\Subscriber([
         'email' => 'test@test.com',
         'user_id' => '123',
         'tags' => [
@@ -58,12 +58,12 @@ As per Drip REST documentation, the create / update endpoints are the same, to u
 
 To delete a subscriber either their email address or Drip id will be needed.
 
-    $Api = new \Snscripts\Drip\Api\Subscribers(
+    $Api = new \TutoraUK\Drip\Api\Subscribers(
         $Drip
     );
 
     // Create a new subscriber object
-    $Subscriber = new \Snscripts\Drip\Items\Subscriber([
+    $Subscriber = new \TutoraUK\Drip\Items\Subscriber([
         'email' => 'test@test.com', // email or
         'id' => '123' // drip id
     ]);
@@ -76,12 +76,12 @@ To delete a subscriber either their email address or Drip id will be needed.
 
 To fetch a subscriber either their email address or Drip id will be needed.
 
-    $Api = new \Snscripts\Drip\Api\Subscribers(
+    $Api = new \TutoraUK\Drip\Api\Subscribers(
         $Drip
     );
 
     // Create a new subscriber object
-    $Subscriber = new \Snscripts\Drip\Items\Subscriber([
+    $Subscriber = new \TutoraUK\Drip\Items\Subscriber([
         'email' => 'test@test.com', // email or
         'id' => '123' // drip id
     ]);
@@ -96,12 +96,12 @@ To fetch a subscriber either their email address or Drip id will be needed.
 
 You are able to unsubscribe a user from all campaigns in one call or just a single campaign. If the second parameter, a Campaign object is omitted, the subscriber will be unsubscribed from all campaigns.
 
-    $Api = new \Snscripts\Drip\Api\Subscribers(
+    $Api = new \TutoraUK\Drip\Api\Subscribers(
         $Drip
     );
 
     // Create a new subscriber object
-    $Subscriber = new \Snscripts\Drip\Items\Subscriber([
+    $Subscriber = new \TutoraUK\Drip\Items\Subscriber([
         'email' => 'test@test.com', // email or
         'id' => '123' // drip id
     ]);
@@ -112,7 +112,7 @@ You are able to unsubscribe a user from all campaigns in one call or just a sing
 
     // create a new campaign object and pass as second parameter to
     // remove from individual campaign
-    $Campaign = new \Snscripts\Drip\Items\Campaign([
+    $Campaign = new \TutoraUK\Drip\Items\Campaign([
         'id' => 123
     ]);
 
@@ -124,12 +124,12 @@ You are able to unsubscribe a user from all campaigns in one call or just a sing
 
 Part of the "campaigns" section of Drip docs however for consistency, subscribing a user to a campaign has been bundled with the rest of the subscriber endpoints.
 
-    $Api = new \Snscripts\Drip\Api\Subscribers(
+    $Api = new \TutoraUK\Drip\Api\Subscribers(
         $Drip
     );
 
     // Create a new subscriber object
-    $Subscriber = new \Snscripts\Drip\Items\Subscriber([
+    $Subscriber = new \TutoraUK\Drip\Items\Subscriber([
         'email' => 'test@test.com', // email or
         'id' => '123', // drip id
         'double_optin' => false,
@@ -138,7 +138,7 @@ Part of the "campaigns" section of Drip docs however for consistency, subscribin
 
     // create a new campaign object and pass as second parameter to
     // remove from individual campaign
-    $Campaign = new \Snscripts\Drip\Items\Campaign([
+    $Campaign = new \TutoraUK\Drip\Items\Campaign([
         'id' => 123
     ]);
 

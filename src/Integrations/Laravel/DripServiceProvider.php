@@ -1,6 +1,6 @@
 <?php
 
-namespace Snscripts\Drip\Integrations\Laravel;
+namespace TutoraUK\Drip\Integrations\Laravel;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -16,11 +16,11 @@ class DripServiceProvider extends ServiceProvider
         $this->registerAuthTypes();
 
         $this->app->singleton(
-            'Snscripts\Drip\Drip',
+            'TutoraUK\Drip\Drip',
             function ($app) use ($authType) {
-                return new \Snscripts\Drip\Drip(
+                return new \TutoraUK\Drip\Drip(
                     new \GuzzleHttp\Client,
-                    $app['Snscripts\Drip\Auth\\' . $authType],
+                    $app['TutoraUK\Drip\Auth\\' . $authType],
                     config('drip.accountId')
                 );
             }
@@ -37,18 +37,18 @@ class DripServiceProvider extends ServiceProvider
     public function registerAuthTypes()
     {
         $this->app->singleton(
-            'Snscripts\Drip\Auth\Token',
+            'TutoraUK\Drip\Auth\Token',
             function ($app) {
-                return new \Snscripts\Drip\Auth\Token(
+                return new \TutoraUK\Drip\Auth\Token(
                     config('drip.apiToken')
                 );
             }
         );
 
         $this->app->singleton(
-            'Snscripts\Drip\Auth\Oauth',
+            'TutoraUK\Drip\Auth\Oauth',
             function ($app) {
-                return new \Snscripts\Drip\Auth\Oauth(
+                return new \TutoraUK\Drip\Auth\Oauth(
                     config('drip.apiToken')
                 );
             }

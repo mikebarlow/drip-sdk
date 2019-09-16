@@ -6,18 +6,18 @@ Before running through the following documentation, please make sure you have re
 
 Record an event against a subscriber in drip (email or drip id is required).
 
-    $Api = new \Snscripts\Drip\Api\Events(
+    $Api = new \TutoraUK\Drip\Api\Events(
         $Drip
     );
 
     // Create a new subscriber object
-    $Subscriber = new \Snscripts\Drip\Items\Subscriber([
+    $Subscriber = new \TutoraUK\Drip\Items\Subscriber([
         'email' => 'test@test.com', // email or
         'user_id' => '123' // drip id
     ]);
 
     // Create a new Event object
-    $Event = new \Snscripts\Drip\Items\Event([
+    $Event = new \TutoraUK\Drip\Items\Event([
         'action' => 'Event action'
     ]);
 
@@ -29,7 +29,7 @@ Record an event against a subscriber in drip (email or drip id is required).
 
 This endpoint lists out aggregated list of all custom events used across all subscribers. QueryFilters can be used for paging.
 
-    $Api = new \Snscripts\Drip\Api\Events(
+    $Api = new \TutoraUK\Drip\Api\Events(
         $Drip
     );
 
@@ -38,7 +38,7 @@ This endpoint lists out aggregated list of all custom events used across all sub
         ->run();
 
     // listAll() can accept a parameter containing QueryFilters
-    $QueryFilter = new \Snscripts\Drip\Utils\QueryFilter([
+    $QueryFilter = new \TutoraUK\Drip\Utils\QueryFilter([
         'per_page' => 50,
         'page' => 2
     ]);

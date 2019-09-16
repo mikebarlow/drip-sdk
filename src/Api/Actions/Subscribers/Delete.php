@@ -1,9 +1,9 @@
 <?php
 
-namespace Snscripts\Drip\Api\Actions\Subscribers;
+namespace TutoraUK\Drip\Api\Actions\Subscribers;
 
-use Snscripts\Drip\Items\Subscriber;
-use Snscripts\Drip\Api\Actions\AbstractAction;
+use TutoraUK\Drip\Items\Subscriber;
+use TutoraUK\Drip\Api\Actions\AbstractAction;
 
 class Delete extends AbstractAction
 {
@@ -23,7 +23,7 @@ class Delete extends AbstractAction
         } elseif (! empty($email)) {
             $this->urlToken = $email;
         } else {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
+            throw new \TutoraUK\Drip\Exceptions\SubscriberInfo(
                 'A subscribers email or ID is required to delete the subscriber.'
             );
         }
@@ -65,19 +65,19 @@ class Delete extends AbstractAction
      * process the response from the guzzle request
      *
      * @param GuzzleHttp\Psr7\Response $Response
-     * @return Snscripts\Result|Result
+     * @return TutoraUK\Result|Result
      */
     public function processResponse($Response)
     {
         if ($Response->getStatusCode() === 204) {
-            return \Snscripts\Result\Result::success(
-                \Snscripts\Result\Result::DELETED,
+            return \TutoraUK\Result\Result::success(
+                \TutoraUK\Result\Result::DELETED,
                 'Subscriber (' . $this->Subscriber->email . ') has been deleted'
             );
         }
 
-        return \Snscripts\Result\Result::fail(
-            \Snscripts\Result\Result::ERROR,
+        return \TutoraUK\Result\Result::fail(
+            \TutoraUK\Result\Result::ERROR,
             'There was an error with deleting the subscriber'
         );
     }

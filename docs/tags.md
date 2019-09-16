@@ -4,7 +4,7 @@ Before running through the following documentation, please make sure you have re
 
 ## List all tags
 
-    $Api = new \Snscripts\Drip\Api\Tags(
+    $Api = new \TutoraUK\Drip\Api\Tags(
         $Drip
     );
 
@@ -20,18 +20,18 @@ Before running through the following documentation, please make sure you have re
 
 ## Tag a Subscriber
 
-    $Api = new \Snscripts\Drip\Api\Tags(
+    $Api = new \TutoraUK\Drip\Api\Tags(
         $Drip
     );
 
     // Create a new subscriber object
-    $Subscriber = new \Snscripts\Drip\Items\Subscriber([
+    $Subscriber = new \TutoraUK\Drip\Items\Subscriber([
         'email' => 'test@test.com',
         'user_id' => '123'
     ]);
 
     // Create a tag object
-    $Tag = new \Snscripts\Drip\Items\Tag([
+    $Tag = new \TutoraUK\Drip\Items\Tag([
         'name' => 'customer'
     ]);
 
@@ -40,18 +40,18 @@ Before running through the following documentation, please make sure you have re
 
 ## Untag a Subscriber
 
-    $Api = new \Snscripts\Drip\Api\Tags(
+    $Api = new \TutoraUK\Drip\Api\Tags(
         $Drip
     );
 
     // Create a new subscriber object
-    $Subscriber = new \Snscripts\Drip\Items\Subscriber([
+    $Subscriber = new \TutoraUK\Drip\Items\Subscriber([
         'email' => 'test@test.com',
         'user_id' => '123'
     ]);
 
     // Create a tag object
-    $Tag = new \Snscripts\Drip\Items\Tag([
+    $Tag = new \TutoraUK\Drip\Items\Tag([
         'name' => 'customer'
     ]);
 

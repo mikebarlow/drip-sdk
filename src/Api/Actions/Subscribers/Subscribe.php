@@ -1,10 +1,10 @@
 <?php
 
-namespace Snscripts\Drip\Api\Actions\Subscribers;
+namespace TutoraUK\Drip\Api\Actions\Subscribers;
 
-use Snscripts\Drip\Items\Campaign;
-use Snscripts\Drip\Items\Subscriber;
-use Snscripts\Drip\Api\Actions\AbstractAction;
+use TutoraUK\Drip\Items\Campaign;
+use TutoraUK\Drip\Items\Subscriber;
+use TutoraUK\Drip\Api\Actions\AbstractAction;
 
 class Subscribe extends AbstractAction
 {
@@ -19,14 +19,14 @@ class Subscribe extends AbstractAction
 
         $email = $this->Subscriber->email;
         if (empty($email)) {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
+            throw new \TutoraUK\Drip\Exceptions\SubscriberInfo(
                 'A subscribers email is required to subscribe them to a campaign.'
             );
         }
 
         $campaignId = $this->Campaign->id;
         if (empty($campaignId)) {
-            throw new \Snscripts\Drip\Exceptions\CampaignInfo('A Campaign ID is required to subscribe a user.');
+            throw new \TutoraUK\Drip\Exceptions\CampaignInfo('A Campaign ID is required to subscribe a user.');
         }
     }
 
@@ -72,15 +72,15 @@ class Subscribe extends AbstractAction
      * process the response from the guzzle request
      *
      * @param GuzzleHttp\Psr7\Response $Response
-     * @return Snscripts\Result|Result
+     * @return TutoraUK\Result|Result
      */
     public function processResponse($Response)
     {
         $body = $this->getBody($Response);
 
         if ($Response->getStatusCode() === 201 && count($body['subscribers']) > 0) {
-            return \Snscripts\Result\Result::success(
-                \Snscripts\Result\Result::SAVED,
+            return \TutoraUK\Result\Result::success(
+                \TutoraUK\Result\Result::SAVED,
                 'Subscriber (' . $this->Subscriber->email .
                 ') has been subscribed to a campaign (' . $this->Campaign->id . ')',
                 [],
@@ -90,8 +90,8 @@ class Subscribe extends AbstractAction
             );
         }
 
-        return \Snscripts\Result\Result::fail(
-            \Snscripts\Result\Result::ERROR,
+        return \TutoraUK\Result\Result::fail(
+            \TutoraUK\Result\Result::ERROR,
             'There was an error while subscribing the user (' . $this->Subscriber->email .
             ') to the campaign (' . $this->Campaign->id . ')'
         );

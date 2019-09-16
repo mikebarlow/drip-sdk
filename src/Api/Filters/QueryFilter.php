@@ -1,8 +1,8 @@
 <?php
 
-namespace Snscripts\Drip\Api\Filters;
+namespace TutoraUK\Drip\Api\Filters;
 
-use Snscripts\GetSet\GetSet;
+use TutoraUK\GetSet\GetSet;
 
 class QueryFilter
 {

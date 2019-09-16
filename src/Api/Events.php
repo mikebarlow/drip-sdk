@@ -1,12 +1,12 @@
 <?php
 
-namespace Snscripts\Drip\Api;
+namespace TutoraUK\Drip\Api;
 
-use Snscripts\Drip\Items\Event;
-use Snscripts\Drip\Items\Subscriber;
-use Snscripts\Drip\Api\Filters\QueryFilter;
-use Snscripts\Drip\Api\Actions\Events\Record;
-use Snscripts\Drip\Api\Actions\Events\ListAll;
+use TutoraUK\Drip\Items\Event;
+use TutoraUK\Drip\Items\Subscriber;
+use TutoraUK\Drip\Api\Filters\QueryFilter;
+use TutoraUK\Drip\Api\Actions\Events\Record;
+use TutoraUK\Drip\Api\Actions\Events\ListAll;
 
 class Events extends Endpoint
 {

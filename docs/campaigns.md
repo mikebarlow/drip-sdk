@@ -5,7 +5,7 @@ Before running through the following documentation, please make sure you have re
 ## List all campaigns
 
     // Setup the object for the campaigns endpoints
-    $Api = new \Snscripts\Drip\Api\Campaigns(
+    $Api = new \TutoraUK\Drip\Api\Campaigns(
         $Drip
     );
 
@@ -20,7 +20,7 @@ Before running through the following documentation, please make sure you have re
     $Campaigns = $Results->getExtras('campaigns');
 
     // Each item in collection is an instance of
-    // Snscripts\Drip\Items\Campaign
+    // TutoraUK\Drip\Items\Campaign
     foreach ($Campaigns as $Campaign) {
         echo $Campaign->id . '<br>';
     }
@@ -29,12 +29,12 @@ Before running through the following documentation, please make sure you have re
 
 To fetch a campaign the Drip Campaign ID will be need
 
-    $Api = new \Snscripts\Drip\Api\Campaigns(
+    $Api = new \TutoraUK\Drip\Api\Campaigns(
         $Drip
     );
 
     // Create a new campaign object
-    $Campaign = new \Snscripts\Drip\Items\Campaign([
+    $Campaign = new \TutoraUK\Drip\Items\Campaign([
         'id' => 123
     ]);
 
@@ -48,12 +48,12 @@ To fetch a campaign the Drip Campaign ID will be need
 
 To activate a campaign the Drip Campaign ID will be need
 
-    $Api = new \Snscripts\Drip\Api\Campaigns(
+    $Api = new \TutoraUK\Drip\Api\Campaigns(
         $Drip
     );
 
     // Create a new campaign object
-    $Campaign = new \Snscripts\Drip\Items\Campaign([
+    $Campaign = new \TutoraUK\Drip\Items\Campaign([
         'id' => 123
     ]);
 
@@ -67,12 +67,12 @@ To activate a campaign the Drip Campaign ID will be need
 
 To pause a campaign the Drip Campaign ID will be need
 
-    $Api = new \Snscripts\Drip\Api\Campaigns(
+    $Api = new \TutoraUK\Drip\Api\Campaigns(
         $Drip
     );
 
     // Create a new campaign object
-    $Campaign = new \Snscripts\Drip\Items\Campaign([
+    $Campaign = new \TutoraUK\Drip\Items\Campaign([
         'id' => 123
     ]);
 
@@ -88,12 +88,12 @@ To list all the subscribers to a campaign, the Drip Campaign ID will be needed. 
 
 
     // Setup the object for the campaigns endpoints
-    $Api = new \Snscripts\Drip\Api\Campaigns(
+    $Api = new \TutoraUK\Drip\Api\Campaigns(
         $Drip
     );
 
     // Create a new campaign object
-    $Campaign = new \Snscripts\Drip\Items\Campaign([
+    $Campaign = new \TutoraUK\Drip\Items\Campaign([
         'id' => 123
     ]);
 
@@ -102,7 +102,7 @@ To list all the subscribers to a campaign, the Drip Campaign ID will be needed. 
         ->run();
 
     // subscribers() can accept a second parameter containing QueryFilters
-    $QueryFilter = new \Snscripts\Drip\Utils\QueryFilter([
+    $QueryFilter = new \TutoraUK\Drip\Utils\QueryFilter([
         'status' => 'active',
         'page' => 5
     ]);
@@ -116,7 +116,7 @@ To list all the subscribers to a campaign, the Drip Campaign ID will be needed. 
     $Subscribers = $Results->getExtras('subscribers');
 
     // Each item in collection is an instance of
-    // Snscripts\Drip\Items\Subscriber
+    // TutoraUK\Drip\Items\Subscriber
     foreach ($Subscribers as $Subscriber) {
         echo $Subscriber->id . '<br>';
     }

@@ -1,23 +1,23 @@
 <?php
-namespace Snscripts\Drip\Tests;
+namespace TutoraUK\Drip\Tests;
 
-use Snscripts\Drip\Drip;
+use TutoraUK\Drip\Drip;
 use GuzzleHttp\ClientInterface;
-use Snscripts\Drip\Auth\AbstractAuth;
+use TutoraUK\Drip\Auth\AbstractAuth;
 
 class DripTest extends \PHPUnit_Framework_TestCase
 {
     public function testCanCreateInstance()
     {
         $this->assertInstanceOf(
-            'Snscripts\Drip\Drip',
+            'TutoraUK\Drip\Drip',
             new Drip(
                 $this->createMock(ClientInterface::class)
             )
         );
 
         $this->assertInstanceOf(
-            'Snscripts\Drip\Drip',
+            'TutoraUK\Drip\Drip',
             new Drip(
                 $this->createMock(ClientInterface::class),
                 $this->createMock(AbstractAuth::class, [], ['token' => 'qwe'])

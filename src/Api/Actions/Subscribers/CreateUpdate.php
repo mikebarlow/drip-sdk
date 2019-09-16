@@ -1,9 +1,9 @@
 <?php
 
-namespace Snscripts\Drip\Api\Actions\Subscribers;
+namespace TutoraUK\Drip\Api\Actions\Subscribers;
 
-use Snscripts\Drip\Items\Subscriber;
-use Snscripts\Drip\Api\Actions\AbstractAction;
+use TutoraUK\Drip\Items\Subscriber;
+use TutoraUK\Drip\Api\Actions\AbstractAction;
 
 class CreateUpdate extends AbstractAction
 {
@@ -58,15 +58,15 @@ class CreateUpdate extends AbstractAction
      * process the response from the guzzle request
      *
      * @param GuzzleHttp\Psr7\Response $Response
-     * @return Snscripts\Result|Result
+     * @return TutoraUK\Result|Result
      */
     public function processResponse($Response)
     {
         $body = $this->getBody($Response);
 
         if (count($body['subscribers']) > 0) {
-            return \Snscripts\Result\Result::success(
-                \Snscripts\Result\Result::FOUND,
+            return \TutoraUK\Result\Result::success(
+                \TutoraUK\Result\Result::FOUND,
                 'Subscriber created / updated',
                 [],
                 [
@@ -75,8 +75,8 @@ class CreateUpdate extends AbstractAction
             );
         }
 
-        return \Snscripts\Result\Result::fail(
-            \Snscripts\Result\Result::ERROR,
+        return \TutoraUK\Result\Result::fail(
+            \TutoraUK\Result\Result::ERROR,
             'There was an error while attempting to create / update the subscriber'
         );
     }

@@ -1,8 +1,8 @@
 <?php
-namespace Snscripts\Drip\Tests\Auth;
+namespace TutoraUK\Drip\Tests\Auth;
 
-use Snscripts\Drip\Auth\Token;
-use Snscripts\Drip\Exceptions\EmptyToken;
+use TutoraUK\Drip\Auth\Token;
+use TutoraUK\Drip\Exceptions\EmptyToken;
 
 class TokenTest extends \PHPUnit_Framework_TestCase
 {

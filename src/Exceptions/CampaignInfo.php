@@ -1,6 +1,6 @@
 <?php
 
-namespace Snscripts\Drip\Exceptions;
+namespace TutoraUK\Drip\Exceptions;
 
 class CampaignInfo extends \BadMethodCallException
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Snscripts\Drip\Api\Actions\Tags;
+namespace TutoraUK\Drip\Api\Actions\Tags;
 
-use Snscripts\Drip\Items\Subscriber;
-use Snscripts\Drip\Items\Tag as TagItem;
-use Snscripts\Drip\Api\Actions\AbstractAction;
+use TutoraUK\Drip\Items\Subscriber;
+use TutoraUK\Drip\Items\Tag as TagItem;
+use TutoraUK\Drip\Api\Actions\AbstractAction;
 
 class AddTag extends AbstractAction
 {
@@ -19,14 +19,14 @@ class AddTag extends AbstractAction
 
         $email = $this->Subscriber->email;
         if (empty($email)) {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
+            throw new \TutoraUK\Drip\Exceptions\SubscriberInfo(
                 'A subscribers email is required to apply a tag to them.'
             );
         }
 
         $tagName = $this->Tag->name;
         if (empty($tagName)) {
-            throw new \Snscripts\Drip\Exceptions\TagInfo('A Tag name is required to apply a tag.');
+            throw new \TutoraUK\Drip\Exceptions\TagInfo('A Tag name is required to apply a tag.');
         }
     }
 
@@ -73,19 +73,19 @@ class AddTag extends AbstractAction
      * process the response from the guzzle request
      *
      * @param GuzzleHttp\Psr7\Response $Response
-     * @return Snscripts\Result|Result
+     * @return TutoraUK\Result|Result
      */
     public function processResponse($Response)
     {
         if ($Response->getStatusCode() === 201) {
-            return \Snscripts\Result\Result::success(
-                \Snscripts\Result\Result::CREATED,
+            return \TutoraUK\Result\Result::success(
+                \TutoraUK\Result\Result::CREATED,
                 'Subscriber (' . $this->Subscriber->email . ') has been tagged with "' . $this->Tag->name . '"'
             );
         }
 
-        return \Snscripts\Result\Result::fail(
-            \Snscripts\Result\Result::ERROR,
+        return \TutoraUK\Result\Result::fail(
+            \TutoraUK\Result\Result::ERROR,
             'There was an error applying the tag "' . $this->Tag->name .
             '" to the subscriber (' . $this->Subscriber->email . ')'
         );

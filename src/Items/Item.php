@@ -1,8 +1,8 @@
 <?php
 
-namespace Snscripts\Drip\Items;
+namespace TutoraUK\Drip\Items;
 
-use Snscripts\GetSet\GetSet;
+use TutoraUK\GetSet\GetSet;
 
 class Item
 {

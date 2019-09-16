@@ -1,8 +1,8 @@
 <?php
 
-namespace Snscripts\Drip\Auth;
+namespace TutoraUK\Drip\Auth;
 
-use Snscripts\Drip\Auth\AbstractAuth;
+use TutoraUK\Drip\Auth\AbstractAuth;
 
 class Oauth extends AbstractAuth
 {
