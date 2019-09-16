@@ -1,5 +1,5 @@
 {
-    "name": "snscripts/drip-sdk",
+    "name": "tutorauk/drip-sdk",
     "description": "Unofficial SDK for Drip Email Marketing Software",
     "keywords": ["Drip", "SDK", "Email", "Marketing"],
     "homepage": "https://github.com/mikebarlow/drip-php-sdk",
@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Snscripts\\Drip\\": "src"
+            "TutoraUK\\Drip\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Snscripts\\Drip\\Tests\\": "tests"
+            "TutoraUK\\Drip\\Tests\\": "tests"
         }
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace Snscripts\Drip;
+namespace TutoraUK\Drip;
 
-use Snscripts\GetSet\GetSet;
+use TutoraUK\GetSet\GetSet;
 use GuzzleHttp\ClientInterface;
-use Snscripts\Drip\Auth\AbstractAuth;
+use TutoraUK\Drip\Auth\AbstractAuth;
 
 class Drip
 {
@@ -69,7 +69,7 @@ class Drip
     public function setAccountId($accountId)
     {
         if (empty($accountId)) {
-            throw new \Snscripts\Drip\Exceptions\EmptyAccountId('Your account id must be filled in');
+            throw new \TutoraUK\Drip\Exceptions\EmptyAccountId('Your account id must be filled in');
         }
 
         $this->accountId = $accountId;

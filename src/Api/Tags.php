@@ -1,12 +1,12 @@
 <?php
 
-namespace Snscripts\Drip\Api;
+namespace TutoraUK\Drip\Api;
 
-use Snscripts\Drip\Items\Tag;
-use Snscripts\Drip\Items\Subscriber;
-use Snscripts\Drip\Api\Actions\Tags\AddTag;
-use Snscripts\Drip\Api\Actions\Tags\ListAll;
-use Snscripts\Drip\Api\Actions\Tags\RemoveTag;
+use TutoraUK\Drip\Items\Tag;
+use TutoraUK\Drip\Items\Subscriber;
+use TutoraUK\Drip\Api\Actions\Tags\AddTag;
+use TutoraUK\Drip\Api\Actions\Tags\ListAll;
+use TutoraUK\Drip\Api\Actions\Tags\RemoveTag;
 
 class Tags extends Endpoint
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Snscripts\Drip\Api\Actions;
+namespace TutoraUK\Drip\Api\Actions;
 
-use Snscripts\GetSet\GetSet;
+use TutoraUK\GetSet\GetSet;
 
 abstract class AbstractAction
 {
@@ -35,7 +35,7 @@ abstract class AbstractAction
      * process the response from the guzzle request
      *
      * @param GuzzleHttp\Psr7\Response $Response
-     * @return Snscripts\Result|Result
+     * @return TutoraUK\Result|Result
      */
     abstract public function processResponse($Response);
 

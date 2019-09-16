@@ -1,10 +1,10 @@
 <?php
 
-namespace Snscripts\Drip\Api\Actions\Events;
+namespace TutoraUK\Drip\Api\Actions\Events;
 
-use Snscripts\Drip\Items\Event;
-use Snscripts\Drip\Items\Subscriber;
-use Snscripts\Drip\Api\Actions\AbstractAction;
+use TutoraUK\Drip\Items\Event;
+use TutoraUK\Drip\Items\Subscriber;
+use TutoraUK\Drip\Api\Actions\AbstractAction;
 
 class Record extends AbstractAction
 {
@@ -25,14 +25,14 @@ class Record extends AbstractAction
         } elseif (! empty($email)) {
             $this->subscriberInfo = ['email' => $email];
         } else {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
+            throw new \TutoraUK\Drip\Exceptions\SubscriberInfo(
                 'A subscribers email or ID is required to record an event action.'
             );
         }
 
         $eventAction = $this->Event->action;
         if (empty($eventAction)) {
-            throw new \Snscripts\Drip\Exceptions\EventInfo(
+            throw new \TutoraUK\Drip\Exceptions\EventInfo(
                 'An event action is required when recording to a subscriber.'
             );
         }
@@ -83,20 +83,20 @@ class Record extends AbstractAction
      * process the response from the guzzle request
      *
      * @param GuzzleHttp\Psr7\Response $Response
-     * @return Snscripts\Result|Result
+     * @return TutoraUK\Result|Result
      */
     public function processResponse($Response)
     {
         if ($Response->getStatusCode() === 204) {
-            return \Snscripts\Result\Result::success(
-                \Snscripts\Result\Result::SAVED,
+            return \TutoraUK\Result\Result::success(
+                \TutoraUK\Result\Result::SAVED,
                 'Action "' . $this->Event->action .
                 '" has been recorded on subscriber "' . $this->Subscriber->email . '"'
             );
         }
 
-        return \Snscripts\Result\Result::fail(
-            \Snscripts\Result\Result::ERROR,
+        return \TutoraUK\Result\Result::fail(
+            \TutoraUK\Result\Result::ERROR,
             'There was an error while recording the action "' . $this->Event->action .
             '" on the user (' . $this->Subscriber->email . ')'
         );

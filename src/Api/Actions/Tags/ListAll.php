@@ -1,9 +1,9 @@
 <?php
 
-namespace Snscripts\Drip\Api\Actions\Tags;
+namespace TutoraUK\Drip\Api\Actions\Tags;
 
-use Snscripts\Drip\Items\Tag;
-use Snscripts\Drip\Api\Actions\AbstractAction;
+use TutoraUK\Drip\Items\Tag;
+use TutoraUK\Drip\Api\Actions\AbstractAction;
 
 class ListAll extends AbstractAction
 {
@@ -43,7 +43,7 @@ class ListAll extends AbstractAction
      * process the response from the guzzle request
      *
      * @param GuzzleHttp\Psr7\Response $Response
-     * @return Snscripts\Result|Result
+     * @return TutoraUK\Result|Result
      */
     public function processResponse($Response)
     {
@@ -57,8 +57,8 @@ class ListAll extends AbstractAction
                 ]);
             }
 
-            return \Snscripts\Result\Result::success(
-                \Snscripts\Result\Result::FOUND,
+            return \TutoraUK\Result\Result::success(
+                \TutoraUK\Result\Result::FOUND,
                 count($Tags) . ' tags found',
                 [],
                 [
@@ -67,8 +67,8 @@ class ListAll extends AbstractAction
             );
         }
 
-        return \Snscripts\Result\Result::fail(
-            \Snscripts\Result\Result::NOT_FOUND,
+        return \TutoraUK\Result\Result::fail(
+            \TutoraUK\Result\Result::NOT_FOUND,
             'No Tags found'
         );
     }

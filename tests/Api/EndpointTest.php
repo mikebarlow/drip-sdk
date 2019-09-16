@@ -1,18 +1,18 @@
 <?php
-namespace Snscripts\Drip\Tests\Api;
+namespace TutoraUK\Drip\Tests\Api;
 
-use Snscripts\Drip\Drip;
-use Snscripts\Drip\Auth\Oauth;
-use Snscripts\Drip\Auth\Token;
+use TutoraUK\Drip\Drip;
+use TutoraUK\Drip\Auth\Oauth;
+use TutoraUK\Drip\Auth\Token;
 use GuzzleHttp\ClientInterface;
-use Snscripts\Drip\Api\Endpoint;
+use TutoraUK\Drip\Api\Endpoint;
 
 class EndpointTest extends \PHPUnit_Framework_TestCase
 {
     public function testCanCreateInstance()
     {
         $this->assertInstanceOf(
-            'Snscripts\Drip\Api\Endpoint',
+            'TutoraUK\Drip\Api\Endpoint',
             new Endpoint(
                 new Drip(
                     $this->createMock(ClientInterface::class)

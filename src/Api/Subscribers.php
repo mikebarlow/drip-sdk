@@ -1,16 +1,16 @@
 <?php
 
-namespace Snscripts\Drip\Api;
+namespace TutoraUK\Drip\Api;
 
-use Snscripts\Drip\Items\Campaign;
-use Snscripts\Drip\Items\Subscriber;
-use Snscripts\Drip\Api\Filters\QueryFilter;
-use Snscripts\Drip\Api\Actions\Subscribers\Fetch;
-use Snscripts\Drip\Api\Actions\Subscribers\Delete;
-use Snscripts\Drip\Api\Actions\Subscribers\ListAll;
-use Snscripts\Drip\Api\Actions\Subscribers\Subscribe;
-use Snscripts\Drip\Api\Actions\Subscribers\Unsubscribe;
-use Snscripts\Drip\Api\Actions\Subscribers\CreateUpdate;
+use TutoraUK\Drip\Items\Campaign;
+use TutoraUK\Drip\Items\Subscriber;
+use TutoraUK\Drip\Api\Filters\QueryFilter;
+use TutoraUK\Drip\Api\Actions\Subscribers\Fetch;
+use TutoraUK\Drip\Api\Actions\Subscribers\Delete;
+use TutoraUK\Drip\Api\Actions\Subscribers\ListAll;
+use TutoraUK\Drip\Api\Actions\Subscribers\Subscribe;
+use TutoraUK\Drip\Api\Actions\Subscribers\Unsubscribe;
+use TutoraUK\Drip\Api\Actions\Subscribers\CreateUpdate;
 
 class Subscribers extends Endpoint
 {

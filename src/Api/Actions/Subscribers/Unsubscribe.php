@@ -1,10 +1,10 @@
 <?php
 
-namespace Snscripts\Drip\Api\Actions\Subscribers;
+namespace TutoraUK\Drip\Api\Actions\Subscribers;
 
-use Snscripts\Drip\Items\Campaign;
-use Snscripts\Drip\Items\Subscriber;
-use Snscripts\Drip\Api\Actions\AbstractAction;
+use TutoraUK\Drip\Items\Campaign;
+use TutoraUK\Drip\Items\Subscriber;
+use TutoraUK\Drip\Api\Actions\AbstractAction;
 
 class Unsubscribe extends AbstractAction
 {
@@ -25,7 +25,7 @@ class Unsubscribe extends AbstractAction
         } elseif (! empty($email)) {
             $this->urlToken = $email;
         } else {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
+            throw new \TutoraUK\Drip\Exceptions\SubscriberInfo(
                 'A subscribers email or ID is required to remove their subscriptions.'
             );
         }
@@ -39,7 +39,7 @@ class Unsubscribe extends AbstractAction
                     'campaign_id' => $this->Campaign->id
                 ];
             } else {
-                throw new \Snscripts\Drip\Exceptions\CampaignInfo(
+                throw new \TutoraUK\Drip\Exceptions\CampaignInfo(
                     'A Campaign ID is required to remove a subscriber from a specific campaign.'
                 );
             }
@@ -84,7 +84,7 @@ class Unsubscribe extends AbstractAction
      * process the response from the guzzle request
      *
      * @param GuzzleHttp\Psr7\Response $Response
-     * @return Snscripts\Result|Result
+     * @return TutoraUK\Result|Result
      */
     public function processResponse($Response)
     {
@@ -97,8 +97,8 @@ class Unsubscribe extends AbstractAction
         }
 
         if ($Response->getStatusCode() === 200 && count($body['subscribers']) > 0) {
-            return \Snscripts\Result\Result::success(
-                \Snscripts\Result\Result::DELETED,
+            return \TutoraUK\Result\Result::success(
+                \TutoraUK\Result\Result::DELETED,
                 'Subscriber (' . $this->Subscriber->email .
                 ') has been unsubscribed from ' . $msg,
                 [],
@@ -108,8 +108,8 @@ class Unsubscribe extends AbstractAction
             );
         }
 
-        return \Snscripts\Result\Result::fail(
-            \Snscripts\Result\Result::ERROR,
+        return \TutoraUK\Result\Result::fail(
+            \TutoraUK\Result\Result::ERROR,
             'There was an error while unsubscribing the user (' .
             $this->Subscriber->email . ') from ' . $msg
         );

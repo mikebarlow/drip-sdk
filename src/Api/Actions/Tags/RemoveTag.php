@@ -1,10 +1,10 @@
 <?php
 
-namespace Snscripts\Drip\Api\Actions\Tags;
+namespace TutoraUK\Drip\Api\Actions\Tags;
 
-use Snscripts\Drip\Items\Subscriber;
-use Snscripts\Drip\Items\Tag as TagItem;
-use Snscripts\Drip\Api\Actions\AbstractAction;
+use TutoraUK\Drip\Items\Subscriber;
+use TutoraUK\Drip\Items\Tag as TagItem;
+use TutoraUK\Drip\Api\Actions\AbstractAction;
 
 class RemoveTag extends AbstractAction
 {
@@ -19,14 +19,14 @@ class RemoveTag extends AbstractAction
 
         $email = $this->Subscriber->email;
         if (empty($email)) {
-            throw new \Snscripts\Drip\Exceptions\SubscriberInfo(
+            throw new \TutoraUK\Drip\Exceptions\SubscriberInfo(
                 'A subscribers email is required to remove a tag from them.'
             );
         }
 
         $tagName = $this->Tag->name;
         if (empty($tagName)) {
-            throw new \Snscripts\Drip\Exceptions\TagInfo('A Tag name is required to remove a tag from a subscriber.');
+            throw new \TutoraUK\Drip\Exceptions\TagInfo('A Tag name is required to remove a tag from a subscriber.');
         }
     }
 
@@ -66,19 +66,19 @@ class RemoveTag extends AbstractAction
      * process the response from the guzzle request
      *
      * @param GuzzleHttp\Psr7\Response $Response
-     * @return Snscripts\Result|Result
+     * @return TutoraUK\Result|Result
      */
     public function processResponse($Response)
     {
         if ($Response->getStatusCode() === 204) {
-            return \Snscripts\Result\Result::success(
-                \Snscripts\Result\Result::DELETED,
+            return \TutoraUK\Result\Result::success(
+                \TutoraUK\Result\Result::DELETED,
                 'Subscriber (' . $this->Subscriber->email . ') has been untagged from "' . $this->Tag->name . '"'
             );
         }
 
-        return \Snscripts\Result\Result::fail(
-            \Snscripts\Result\Result::ERROR,
+        return \TutoraUK\Result\Result::fail(
+            \TutoraUK\Result\Result::ERROR,
             'There was an error removing the tag "' . $this->Tag->name .
             '" from the subscriber (' . $this->Subscriber->email . ')'
         );

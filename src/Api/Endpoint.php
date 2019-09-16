@@ -1,10 +1,10 @@
 <?php
 
-namespace Snscripts\Drip\Api;
+namespace TutoraUK\Drip\Api;
 
-use Snscripts\Drip\Drip;
-use Snscripts\GetSet\GetSet;
-use Snscripts\Drip\Api\Actions\AbstractAction;
+use TutoraUK\Drip\Drip;
+use TutoraUK\GetSet\GetSet;
+use TutoraUK\Drip\Api\Actions\AbstractAction;
 
 class Endpoint
 {
@@ -23,12 +23,12 @@ class Endpoint
     /**
      * run the query
      *
-     * @return Snscripts\Result|Result
+     * @return TutoraUK\Result|Result
      */
     public function run()
     {
         if (! is_object($this->loadedAction)) {
-            throw new \Snscripts\Drip\Exceptions\NoActionLoaded('No action was loaded for ' . get_class($this));
+            throw new \TutoraUK\Drip\Exceptions\NoActionLoaded('No action was loaded for ' . get_class($this));
         }
 
         $Query = $this->Drip->http;
@@ -47,7 +47,7 @@ class Endpoint
             );
         } catch (\Exception $e) {
             // throw our own exception here
-            throw new \Snscripts\Drip\Exceptions\QueryFailed(
+            throw new \TutoraUK\Drip\Exceptions\QueryFailed(
                 'Query (' . get_class($this) . '::' . get_class($this->loadedAction) .
                 ') failed, error given was ' . $e->getMessage()
             );
@@ -89,7 +89,7 @@ class Endpoint
     public function buildUrl(Drip $Drip, $endpointUrl)
     {
         if (empty($Drip->accountId)) {
-            throw new \Snscripts\Drip\Exceptions\EmptyAccountId('Your account id must be filled in');
+            throw new \TutoraUK\Drip\Exceptions\EmptyAccountId('Your account id must be filled in');
         }
 
         $endpointUrl = ltrim(
