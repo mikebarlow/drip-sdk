@@ -65,8 +65,8 @@ class CreateUpdate extends AbstractAction
         $body = $this->getBody($Response);
 
         if (count($body['subscribers']) > 0) {
-            return \TutoraUK\Result\Result::success(
-                \TutoraUK\Result\Result::FOUND,
+            return \Snscripts\Result\Result::success(
+                \Snscripts\Result\Result::FOUND,
                 'Subscriber created / updated',
                 [],
                 [
@@ -75,8 +75,8 @@ class CreateUpdate extends AbstractAction
             );
         }
 
-        return \TutoraUK\Result\Result::fail(
-            \TutoraUK\Result\Result::ERROR,
+        return \Snscripts\Result\Result::fail(
+            \Snscripts\Result\Result::ERROR,
             'There was an error while attempting to create / update the subscriber'
         );
     }

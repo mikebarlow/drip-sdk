@@ -97,8 +97,8 @@ class Unsubscribe extends AbstractAction
         }
 
         if ($Response->getStatusCode() === 200 && count($body['subscribers']) > 0) {
-            return \TutoraUK\Result\Result::success(
-                \TutoraUK\Result\Result::DELETED,
+            return \Snscripts\Result\Result::success(
+                \Snscripts\Result\Result::DELETED,
                 'Subscriber (' . $this->Subscriber->email .
                 ') has been unsubscribed from ' . $msg,
                 [],
@@ -108,8 +108,8 @@ class Unsubscribe extends AbstractAction
             );
         }
 
-        return \TutoraUK\Result\Result::fail(
-            \TutoraUK\Result\Result::ERROR,
+        return \Snscripts\Result\Result::fail(
+            \Snscripts\Result\Result::ERROR,
             'There was an error while unsubscribing the user (' .
             $this->Subscriber->email . ') from ' . $msg
         );

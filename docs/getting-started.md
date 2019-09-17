@@ -27,7 +27,7 @@ Set your Drip account ID by called
 
 ## Results
 
-The `run` method will always return an instance of `TutoraUK\Result\Result`. The values attached to the object returned vary depending on the API end point called. For full documentation regarding this object see the [docs here](https://github.com/mikebarlow/result/blob/master/README.md).
+The `run` method will always return an instance of `Snscripts\Result\Result`. The values attached to the object returned vary depending on the API end point called. For full documentation regarding this object see the [docs here](https://github.com/mikebarlow/result/blob/master/README.md).
 
 ## Query Filters
 

@@ -78,14 +78,14 @@ class AddTag extends AbstractAction
     public function processResponse($Response)
     {
         if ($Response->getStatusCode() === 201) {
-            return \TutoraUK\Result\Result::success(
-                \TutoraUK\Result\Result::CREATED,
+            return \Snscripts\Result\Result::success(
+                \Snscripts\Result\Result::CREATED,
                 'Subscriber (' . $this->Subscriber->email . ') has been tagged with "' . $this->Tag->name . '"'
             );
         }
 
-        return \TutoraUK\Result\Result::fail(
-            \TutoraUK\Result\Result::ERROR,
+        return \Snscripts\Result\Result::fail(
+            \Snscripts\Result\Result::ERROR,
             'There was an error applying the tag "' . $this->Tag->name .
             '" to the subscriber (' . $this->Subscriber->email . ')'
         );
