@@ -7,6 +7,7 @@ use TutoraUK\Drip\Items\Subscriber;
 use TutoraUK\Drip\Api\Filters\QueryFilter;
 use TutoraUK\Drip\Api\Actions\Events\Record;
 use TutoraUK\Drip\Api\Actions\Events\ListAll;
+use TutoraUK\Drip\Api\Actions\Events\RecordEvents;
 
 class Events extends Endpoint
 {
@@ -36,6 +37,18 @@ class Events extends Endpoint
     public function record(Subscriber $Subscriber, Event $Event)
     {
         $this->loadedAction = new Record($Subscriber, $Event);
+        return $this;
+    }
+
+    /**
+     * Batch events
+     *
+     * @param array $Events
+     * @return this
+     */
+    public function recordEvents(array $Events) 
+    {
+        $this->loadedAction = new RecordEvents($Events);
         return $this;
     }
 }
