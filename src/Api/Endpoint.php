@@ -3,8 +3,7 @@
 namespace TutoraUK\Drip\Api;
 
 use TutoraUK\Drip\Drip;
-use TutoraUK\GetSet\GetSet;
-use TutoraUK\Drip\Api\Actions\AbstractAction;
+use Snscripts\GetSet\GetSet;
 
 class Endpoint
 {

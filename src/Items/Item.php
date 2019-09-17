@@ -2,7 +2,7 @@
 
 namespace TutoraUK\Drip\Items;
 
-use TutoraUK\GetSet\GetSet;
+use Snscripts\GetSet\GetSet;
 
 class Item
 {

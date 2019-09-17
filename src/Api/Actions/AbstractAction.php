@@ -2,7 +2,7 @@
 
 namespace TutoraUK\Drip\Api\Actions;
 
-use TutoraUK\GetSet\GetSet;
+use Snscripts\GetSet\GetSet;
 
 abstract class AbstractAction
 {

@@ -2,7 +2,7 @@
 
 namespace TutoraUK\Drip;
 
-use TutoraUK\GetSet\GetSet;
+use Snscripts\GetSet\GetSet;
 use GuzzleHttp\ClientInterface;
 use TutoraUK\Drip\Auth\AbstractAuth;
 

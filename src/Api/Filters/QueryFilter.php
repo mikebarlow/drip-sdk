@@ -2,7 +2,7 @@
 
 namespace TutoraUK\Drip\Api\Filters;
 
-use TutoraUK\GetSet\GetSet;
+use Snscripts\GetSet\GetSet;
 
 class QueryFilter
 {

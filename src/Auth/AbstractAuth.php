@@ -2,7 +2,7 @@
 
 namespace TutoraUK\Drip\Auth;
 
-use TutoraUK\GetSet\GetSet;
+use Snscripts\GetSet\GetSet;
 use TutoraUK\Drip\Exceptions\EmptyToken;
 
 abstract class AbstractAuth
