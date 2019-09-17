@@ -79,8 +79,8 @@ class Subscribe extends AbstractAction
         $body = $this->getBody($Response);
 
         if ($Response->getStatusCode() === 201 && count($body['subscribers']) > 0) {
-            return \TutoraUK\Result\Result::success(
-                \TutoraUK\Result\Result::SAVED,
+            return \Snscripts\Result\Result::success(
+                \Snscripts\Result\Result::SAVED,
                 'Subscriber (' . $this->Subscriber->email .
                 ') has been subscribed to a campaign (' . $this->Campaign->id . ')',
                 [],
@@ -90,8 +90,8 @@ class Subscribe extends AbstractAction
             );
         }
 
-        return \TutoraUK\Result\Result::fail(
-            \TutoraUK\Result\Result::ERROR,
+        return \Snscripts\Result\Result::fail(
+            \Snscripts\Result\Result::ERROR,
             'There was an error while subscribing the user (' . $this->Subscriber->email .
             ') to the campaign (' . $this->Campaign->id . ')'
         );

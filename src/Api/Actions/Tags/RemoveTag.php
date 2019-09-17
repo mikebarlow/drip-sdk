@@ -71,14 +71,14 @@ class RemoveTag extends AbstractAction
     public function processResponse($Response)
     {
         if ($Response->getStatusCode() === 204) {
-            return \TutoraUK\Result\Result::success(
-                \TutoraUK\Result\Result::DELETED,
+            return \Snscripts\Result\Result::success(
+                \Snscripts\Result\Result::DELETED,
                 'Subscriber (' . $this->Subscriber->email . ') has been untagged from "' . $this->Tag->name . '"'
             );
         }
 
-        return \TutoraUK\Result\Result::fail(
-            \TutoraUK\Result\Result::ERROR,
+        return \Snscripts\Result\Result::fail(
+            \Snscripts\Result\Result::ERROR,
             'There was an error removing the tag "' . $this->Tag->name .
             '" from the subscriber (' . $this->Subscriber->email . ')'
         );

@@ -57,8 +57,8 @@ class ListAll extends AbstractAction
                 ]);
             }
 
-            return \TutoraUK\Result\Result::success(
-                \TutoraUK\Result\Result::FOUND,
+            return \Snscripts\Result\Result::success(
+                \Snscripts\Result\Result::FOUND,
                 count($Tags) . ' tags found',
                 [],
                 [
@@ -67,8 +67,8 @@ class ListAll extends AbstractAction
             );
         }
 
-        return \TutoraUK\Result\Result::fail(
-            \TutoraUK\Result\Result::NOT_FOUND,
+        return \Snscripts\Result\Result::fail(
+            \Snscripts\Result\Result::NOT_FOUND,
             'No Tags found'
         );
     }

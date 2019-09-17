@@ -72,8 +72,8 @@ class Fetch extends AbstractAction
         $body = $this->getBody($Response);
 
         if (count($body['subscribers']) > 0) {
-            return \TutoraUK\Result\Result::success(
-                \TutoraUK\Result\Result::FOUND,
+            return \Snscripts\Result\Result::success(
+                \Snscripts\Result\Result::FOUND,
                 'Subscriber details found.',
                 [],
                 [
@@ -82,8 +82,8 @@ class Fetch extends AbstractAction
             );
         }
 
-        return \TutoraUK\Result\Result::fail(
-            \TutoraUK\Result\Result::NOT_FOUND,
+        return \Snscripts\Result\Result::fail(
+            \Snscripts\Result\Result::NOT_FOUND,
             'No Subscribers found'
         );
     }

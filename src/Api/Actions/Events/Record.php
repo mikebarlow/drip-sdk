@@ -88,15 +88,15 @@ class Record extends AbstractAction
     public function processResponse($Response)
     {
         if ($Response->getStatusCode() === 204) {
-            return \TutoraUK\Result\Result::success(
-                \TutoraUK\Result\Result::SAVED,
+            return \Snscripts\Result\Result::success(
+                \Snscripts\Result\Result::SAVED,
                 'Action "' . $this->Event->action .
                 '" has been recorded on subscriber "' . $this->Subscriber->email . '"'
             );
         }
 
-        return \TutoraUK\Result\Result::fail(
-            \TutoraUK\Result\Result::ERROR,
+        return \Snscripts\Result\Result::fail(
+            \Snscripts\Result\Result::ERROR,
             'There was an error while recording the action "' . $this->Event->action .
             '" on the user (' . $this->Subscriber->email . ')'
         );
