@@ -11,6 +11,7 @@ use TutoraUK\Drip\Api\Actions\Subscribers\ListAll;
 use TutoraUK\Drip\Api\Actions\Subscribers\Subscribe;
 use TutoraUK\Drip\Api\Actions\Subscribers\Unsubscribe;
 use TutoraUK\Drip\Api\Actions\Subscribers\CreateUpdate;
+use TutoraUK\Drip\Api\Actions\Subscribers\CreateOrUpdateSubscribers;
 
 class Subscribers extends Endpoint
 {
@@ -39,6 +40,18 @@ class Subscribers extends Endpoint
     public function createUpdate(Subscriber $Subscriber)
     {
         $this->loadedAction = new CreateUpdate($Subscriber);
+        return $this;
+    }
+
+    /**
+     * Create or update a batch of subscribers
+     *
+     * @param array $Subscribers
+     * @return Subscribers $this
+     */
+    public function createOrUpdateSubscribers($Subscribers)
+    {
+        $this->loadedAction = new CreateOrUpdateSubscribers($Subscribers);
         return $this;
     }
 
