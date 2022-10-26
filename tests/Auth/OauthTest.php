@@ -1,10 +1,11 @@
 <?php
 namespace TutoraUK\Drip\Tests\Auth;
 
+use PHPUnit\Framework\TestCase;
 use TutoraUK\Drip\Auth\Oauth;
 use TutoraUK\Drip\Exceptions\EmptyToken;
 
-class OauthTest extends \PHPUnit_Framework_TestCase
+class OauthTest extends TestCase
 {
     public function testBuildFormatsCorrectly()
     {
@@ -22,7 +23,7 @@ class OauthTest extends \PHPUnit_Framework_TestCase
 
     public function testExceptionIsThrownWhenTokenIsEmpty()
     {
-        $this->setExpectedException(EmptyToken::class);
+        $this->expectException(EmptyToken::class);
 
         $Auth = new Oauth('');
     }

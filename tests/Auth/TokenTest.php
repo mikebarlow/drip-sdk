@@ -1,10 +1,11 @@
 <?php
 namespace TutoraUK\Drip\Tests\Auth;
 
+use PHPUnit\Framework\TestCase;
 use TutoraUK\Drip\Auth\Token;
 use TutoraUK\Drip\Exceptions\EmptyToken;
 
-class TokenTest extends \PHPUnit_Framework_TestCase
+class TokenTest extends TestCase
 {
     public function testBuildFormatsCorrectly()
     {
@@ -18,7 +19,7 @@ class TokenTest extends \PHPUnit_Framework_TestCase
 
     public function testExceptionIsThrownWhenTokenIsEmpty()
     {
-        $this->setExpectedException(EmptyToken::class);
+        $this->expectException(EmptyToken::class);
 
         $Auth = new Token('');
     }

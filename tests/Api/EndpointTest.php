@@ -1,13 +1,14 @@
 <?php
 namespace TutoraUK\Drip\Tests\Api;
 
+use PHPUnit\Framework\TestCase;
 use TutoraUK\Drip\Drip;
 use TutoraUK\Drip\Auth\Oauth;
 use TutoraUK\Drip\Auth\Token;
 use GuzzleHttp\ClientInterface;
 use TutoraUK\Drip\Api\Endpoint;
 
-class EndpointTest extends \PHPUnit_Framework_TestCase
+class EndpointTest extends TestCase
 {
     public function testCanCreateInstance()
     {
