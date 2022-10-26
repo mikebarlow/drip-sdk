@@ -1,11 +1,12 @@
 <?php
 namespace TutoraUK\Drip\Tests;
 
+use PHPUnit\Framework\TestCase;
 use TutoraUK\Drip\Drip;
 use GuzzleHttp\ClientInterface;
 use TutoraUK\Drip\Auth\AbstractAuth;
 
-class DripTest extends \PHPUnit_Framework_TestCase
+class DripTest extends TestCase
 {
     public function testCanCreateInstance()
     {
