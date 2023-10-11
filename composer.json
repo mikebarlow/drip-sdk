@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.6.0",
-        "guzzlehttp/guzzle": "7.5.0",
+        "guzzlehttp/guzzle": "^7.5.0",
         "cartalyst/collections": "1.1.*",
         "snscripts/getset": "1.0.*",
         "snscripts/result": "1.0.*"
